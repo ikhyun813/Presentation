@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>index.knit</title>
+    <meta charset="utf-8" />
+    <script src="index_files/header-attrs-2.29/header-attrs.js"></script>
+    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="index_files/kePrint-0.0.1/kePrint.js"></script>
+    <link href="index_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="modern.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle, title-slide
+
+# Unaligned Decoupling  
+### *How U.S. Allies Responded to Washington’s Trade War with China*
+#### Ikhyun Lee  
+#### School of International Service, American University
+#### April 9, 2025
+
+---
+# Overview
+
+**Background**  
+	•	In 2018, the United States launched a trade war with China, aiming to economically decouple
+&lt;br&gt;
+	•	The U.S. has consistently tried to build a coalition of like-minded partners to reduce dependence on China
+
+***
+
+**Research Question**  
+Did U.S. allies align with U.S. strategy and reduce their own strategic imports from China?
+
+***
+
+**Key Finding**  
+The U.S. reduced strategic imports after 2018.  
+Most allies? They went the opposite direction.
+
+---
+# Data
+
+**Data Source**: UN Comtrade (cleaned and processed in R)
+***
+**Scope of Analysis**
+- **Years**: 2014–2022
+- **Countries**: United States, Japan, South Korea, United Kingdom, Germany, France, Australia
+- **Products**: 13 strategic HS codes (e.g., semiconductors, aircraft parts, telecom equipment)
+***
+**Unit of Analysis**: Country–year–product imports from China (n = 787)
+
+---
+&lt;h2 style="font-size: 50px; font-weight: 700; margin-bottom: 10px;"&gt;
+Analysis 1: Total Strategic Imports from China
+&lt;/h2&gt;
+
+&lt;img src="index_files/figure-html/unnamed-chunk-1-1.png" width="100%" style="margin-bottom:0;" /&gt;
+
+---
+# Analysis 2: Post-2018 Divergence (Aggregated Interaction Model)
+
+## *What does this model estimate?*
+
+- Whether U.S. allies **diverged from** the U.S. after the trade war began.
+- DV: Log of strategic imports from China(USD)
+- IV: `Post-2018 × Country` interactions
+- Benchmarks each country **relative to the U.S.**
+ 
+&lt;br&gt;
+🟢 Positive coefficients = divergence from U.S. post-2018
+&lt;br&gt;
+🔴 Negative coefficients = alignment with U.S. decoupling
+
+
+---
+# Results
+&lt;div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px;"&gt;
+
+&lt;!-- LEFT: Table --&gt;
+&lt;div style="flex: 1.2;"&gt;
+&lt;table class="table" style="font-size: 13px; width: auto !important; "&gt;
+&lt;caption style="font-size: initial !important;"&gt;&lt;span style="font-size:22px; font-weight:700; color:#003049;"&gt;Strategic Imports from China&lt;/span&gt;&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Term &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Std. Error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p-value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Constant &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 24.343*** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.091 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; USA (Post-2018) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -0.268* &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.122 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.033 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Australia &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -2.922*** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.129 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; France &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -2.647*** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.129 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Germany &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -1.806*** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.129 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Japan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -1.646*** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.129 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; South Korea &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -1.291*** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.129 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; UK &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -2.527*** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.129 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Australia × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.551** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.173 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.002 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; France × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.104 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.173 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.549 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Germany × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.614*** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.173 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Japan × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.487** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.173 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.007 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; South Korea × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.94*** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.173 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; UK × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.598** &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.173 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Observations &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 63 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R-squared &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.97 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Adjusted R-squared &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.962 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+&lt;!-- RIGHT: Interpretation --&gt;
+&lt;div style="flex: 1.8; font-size: 26px; color: #003049; padding-top: 10px; line-height: 1.5;"&gt;
+
+	•	🇺🇸 U.S. Post-2018: −0.268
+	&lt;br&gt;
+	→ U.S. reduced strategic imports by 23.5%
+	&lt;br&gt;
+	&lt;br&gt;
+	•	🇰🇷 South Korea × Post-2018: +0.940
+	&lt;br&gt;
+	→ Diverged by 156% vs. U.S.
+	&lt;br&gt;
+	&lt;br&gt;
+	•	🇩🇪 Germany × Post-2018: +0.614
+	&lt;br&gt;
+	→ Diverged by 84.8%
+	&lt;br&gt;
+	&lt;br&gt;
+	•	🇬🇧 UK × Post-2018: +0.598
+	&lt;br&gt;
+	→ Diverged by 81.9%
+	&lt;br&gt;
+	&lt;br&gt;
+	&lt;em&gt;Relative divergence, not absolute import growth&lt;em&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+# Visualization: Country Divergence
+
+&lt;img src="index_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="margin-bottom:0;" /&gt;
+→Germany, South Korea, and the UK show the greatest divergence from U.S. decoupling 
+---
+# Robustness Check
+
+### *I test whether results hold under:*
+- Robust (heteroskedasticity-consistent) standard errors
+
+&lt;table class="table" style="font-size: 13px; width: auto !important; "&gt;
+&lt;caption style="font-size: initial !important;"&gt;Robust SEs (HC1): Post-2018 Effects by Country&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Term &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Std. Error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p-value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; USA (Post-2018) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -0.268 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.179 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.141 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Australia × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.551★★ &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.192 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.006 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; France × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.104 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.225 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.645 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Germany × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.614★★ &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.202 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.004 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Japan × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.487★ &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.187 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.012 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; South Korea × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.94★★★ &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.222 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; UK × Post-2018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.598★★ &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.206 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.005 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+✅ Results are consistent across robustness checks.  
+The divergence in allied behavior holds — even with alternative specifications.
+---
+# Key Takeaways
+
+- U.S. strategic imports from China **declined** after 2018
+- Most allies *did not* follow - several increased strategic imports
+- Alliance cohesion appears limited in the economic domain
+
+---
+class: small-title
+# Appendix: 13 Strategic Products (HS6 Codes)
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Sector &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; HS_Code &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Description &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Semiconductors &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 854231 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Microprocessor units &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 854232 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Memory chips &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 854233 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Amplifier ICs &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 854239 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Other integrated circuits &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Telecom Equipment &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 851770 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Telephone or networking parts &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 852990 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Radio/telecom transmission parts &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Aerospace &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 880330 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aircraft parts &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 880390 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Other aircraft or helicopter parts &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Engine Components &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 840999 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Parts for aircraft or vehicle engines &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Electronics &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 850440 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Power supply units and converters &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 847150 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Computer processing units &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Batteries &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 850760 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Lithium-ion batteries &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Rare Earths &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 280530 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yttrium oxide (rare earth metal) &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+*These HS6 codes were selected based on their prominence in U.S. trade policy debates, export controls, and strategic technology initiatives.
+
+---
+
+class: center, middle, question-slide
+
+# Thank You!
+
+## Questions?
+
+
+
+*il0974a@american.edu*
+&lt;br&gt;
+*GitHub: ikhyun813*
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"transition": "fade"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
